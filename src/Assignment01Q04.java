@@ -9,14 +9,17 @@ public class Assignment01Q04 {
 
         move = move % array.length; // Normalize the move value to be within the array length
 
+        // If move is negative, convert it to a positive equivalent
         if (move < 0) {
             move = array.length + move;
         }
 
+        // If the direction is left, we can convert it to a right shift by subtracting from the array length
         if (direction == 'L') {
             move = array.length - move;
         }
 
+        // Perform the cyclic shift
         int needed_shifts = move % array.length;
         int next_val = array[0];
         int next_idx = 0;
