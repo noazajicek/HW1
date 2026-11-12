@@ -21,6 +21,7 @@ public class Assignment01Q04 {
 
         // Perform the cyclic shift
         int needed_shifts = move % array.length;
+        int start_idx = 0;
         int next_val = array[0];
         int next_idx = 0;
         for (int i = 0; i < array.length; i++) {
@@ -28,6 +29,14 @@ public class Assignment01Q04 {
             array[(next_idx + needed_shifts) % array.length] = next_val;
             next_val = temp;
             next_idx = (next_idx + needed_shifts) % array.length;
+
+            if (next_idx == start_idx) {
+            start_idx++;
+            if (start_idx < array.length) {
+                next_idx = start_idx;
+                next_val = array[start_idx];
+            }
+        }
             }
   
         return array;
